@@ -15,8 +15,8 @@ CREATE TABLE products (
 );
 
 CREATE TABLE product_compositions (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     product_id UUID REFERENCES products(id) ON DELETE CASCADE,
     material_id UUID REFERENCES raw_materials(id) ON DELETE CASCADE,
-    quantity_required DECIMAL(10,2) NOT NULL,
-    PRIMARY KEY (product_id, material_id)
+    quantity_required DECIMAL(10,2) NOT NULL
 );
