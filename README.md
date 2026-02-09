@@ -261,11 +261,11 @@ The application will be available at: **http://localhost:8080**
 
 Interactive API documentation is available through Swagger UI:
 
-**URL:** http://localhost:8081/swagger-ui.html
+**URL:** http://localhost:8080/swagger-ui.html
 
 You can also access the OpenAPI specification in JSON format:
 
-**URL:** http://localhost:8081/api-docs
+**URL:** http://localhost:8080/api-docs
 
 ## 📁 Project Structure
 
@@ -323,7 +323,6 @@ production-manager-service/
 
 The project uses Spring Profiles for different environments:
 
-- **dev**: Development environment (port 8081, SQL logs enabled)
 - **prod**: Production environment (configure as needed)
 
 To change the active profile, edit `application.properties`:
@@ -346,21 +345,6 @@ Naming convention:
 ### MapStruct
 
 MapStruct is used for mapping between entities and DTOs. Mappers are interfaces annotated with `@Mapper` and the implementation is automatically generated at compile time.
-
-## 🐛 Troubleshooting
-
-### Error: "Port 8081 already in use"
-
-Check if another process is using the port:
-```bash
-# Windows
-netstat -ano | findstr :8081
-
-# Linux/Mac
-lsof -i :8081
-```
-
-Change the port in `application-dev.properties` if necessary.
 
 ### Error: Flyway checksum mismatch
 
