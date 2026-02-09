@@ -20,13 +20,13 @@ public class RawMaterials {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(name = "code")
+    @Column(name = "code", nullable = false)
     private Integer code;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "stock_quantity")
+    @Column(name = "stock_quantity", nullable = false)
     private BigDecimal stockQuantity;
 
     @Column(name = "created_at")

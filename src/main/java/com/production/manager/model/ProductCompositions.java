@@ -9,6 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -20,13 +22,15 @@ public class ProductCompositions {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(name = "product_id")
-    private UUID productId;
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
 
-    @Column(name = "material_id")
-    private UUID materialId;
+    @ManyToOne
+    @JoinColumn(name = "material_id", nullable = false)
+    private RawMaterials rawMaterial;
 
-    @Column(name = "quantity_required")
+    @Column(name = "quantity_required", nullable = false)
     private BigDecimal quantityRequired;
 
     @Column(name = "created_at")
