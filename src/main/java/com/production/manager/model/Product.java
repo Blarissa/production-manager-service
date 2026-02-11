@@ -15,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
+import org.hibernate.annotations.Generated;
 
 @Data
 @Entity
@@ -24,7 +25,8 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(name = "code", nullable = false)
+    @Column(name = "code", nullable = false, insertable = false, updatable = false)
+    @Generated
     private Integer code;
 
     @Column(name = "name", nullable = false)
